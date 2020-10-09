@@ -20,6 +20,7 @@ DIR_PATH = PATH + DIR_NAME
 # export先
 EXPORT_DIR_NAME = 'phase2/'
 EXPORT_PATH = PATH + EXPORT_DIR_NAME
+label_list = ['car', 'van', 'truck', 'bus']
 
 
 def xml_to_str(xml_name):
@@ -45,7 +46,7 @@ def analyze_point(root):
         y_list = []
         for label_name in object.iter('name'):
             label = xml_to_str(label_name)
-            if label == 'car':
+            if label in label_list:
                 # print("car")
                 for polygon in object.iter('polygon'):
                     # print("polygon")

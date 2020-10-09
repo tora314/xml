@@ -25,7 +25,7 @@ COPY_PATH = PATH + COPY_DIR_NAME
 file_list = os.listdir(PATH)
 number = 1
 
-
+label_list = ['car', 'van', 'truck', 'bus']
 def analyze_xml(root, file, number, ANN_DIR_PATH, IMG_DIR_PATH):
     # print(ANN_DIR_PATH + file[0] + '.xml')
     # print("analyze")
@@ -34,7 +34,7 @@ def analyze_xml(root, file, number, ANN_DIR_PATH, IMG_DIR_PATH):
             label_name = label_name.text
             label_name = label_name.split('\n')
             label_name = label_name[1]
-            if label_name == 'car':
+            if label_name in label_list:
                 # print("car")
                 # print(COPY_PATH)
                 shutil.copy(ANN_DIR_PATH + file[0] + '.xml', COPY_PATH+str(number)+'.xml')
