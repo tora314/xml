@@ -32,7 +32,7 @@ def xml_write(number, img_shape, point_list, EXPORT_PATH):
     for dict in point_list:
         # print(dict)
         object = ET.SubElement(annotation, 'object')
-        name = sub_element(object, 'name', 'car')
+        name = sub_element(object, 'name', dict['label'])  # 変更 小路 'car'
         pose = sub_element(object, 'pose', 'Unspecified')
         truncated = sub_element(object, 'truncated', '0')
         difficult = sub_element(object, 'difficult', '0')

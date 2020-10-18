@@ -20,7 +20,7 @@ DIR_PATH = PATH + DIR_NAME
 # export先
 EXPORT_DIR_NAME = 'phase2/'
 EXPORT_PATH = PATH + EXPORT_DIR_NAME
-label_list = ['car', 'van', 'truck', 'bus']
+label_list = ['van', 'truck', 'bus']
 
 
 def xml_to_str(xml_name):
@@ -57,6 +57,7 @@ def analyze_point(root):
                         for y in pt.iter('y'):
                             y_list.append(int(xml_to_str(y)))
                     point_dict = min_max_point(x_list, y_list)
+                    point_dict['label'] = label  # 変更 小路
                     point_list.append(point_dict)
             else:
                 #print("no car!")
